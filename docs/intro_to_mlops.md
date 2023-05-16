@@ -2,7 +2,7 @@
 
 ## What is Machine Learning Operationalisation (MLOps) ?
 
-MLOps brings DevOps principles to machine learning. It is a set of best practices to put ML models into production and automate the life-cycle.
+MLOps brings DevOps principles to machine learning. It is a set of best practices to put ML models into Production and automate the life-cycle.
 
 MLOps could help to
 
