@@ -33,11 +33,11 @@ The extent to which MLOps is implemented into a team or organization could be ex
 
 | Level |              | Overview | Use Case | 
 |----:|--------------|----------|----------|  
-| 0️⃣  | **No MLOps** | <ul><li>ML process highly manual</li><li>poor cooperation</li><li>lack of standards, success depends on an individual's expertise</li> </ul> | <ul><li>proof of concept (PoC)</li><li>academic project</li></ul> |
-| 1️⃣  | **DevOps but no MLOps** | <ul><li>ML training is most often manual </li><li>software engineers might help with the deployment</li><li>automated tests and releases</li> </ul> | <ul><li>bringing PoC to production</li></ul> |
-| 2️⃣  | **Automated Training** | <ul><li>ML experiment results are centrally tracked </li><li>training code and models are version controlled</li><li>deployment is handled by software engineers</li> </ul> | <ul><li>maintaining 2-3+ ML models</li></ul> |
-| 3️⃣  | **Automated Model Deployment** | <ul><li>releases are managed by an automated CI/CD pipeline</li><li>close cooperation between data and software engineers</li><li>performance of the deployed model is monitored, A/B tests for model selection are used</li></ul> | <ul><li>business-critical ML services</li></ul> |
-| 4️⃣  | **Full MLOps Automated Operations** | <ul><li>clearly defined metrics for model monitoring</li><li>automatic retraining triggered when passing a model metric's threshold</li> </ul>  | <ul><li>use only when a favorable trade-off between implementation cost and increase in efficiency is likely</li><li>retraining is needed often and is repetitive (has potential for automation)</li></ul> |
+| 0️⃣  | **No MLOps** | <ul><li>ML process highly manual</li><li>poor cooperation</li><li>Lack of standards, success depends on an individual's expertise</li> </ul> | <ul><li>Proof of concept (PoC)</li><li>academic project</li></ul> |
+| 1️⃣  | **DevOps but no MLOps** | <ul><li>ML training is most often manual </li><li>Software engineers might help with the deployment</li><li>Automated tests and releases</li> </ul> | <ul><li>Bringing PoC to production</li></ul> |
+| 2️⃣  | **Automated Training** | <ul><li>ML experiment results are centrally tracked </li><li>Training code and models are version controlled</li><li>Deployment is handled by software engineers</li> </ul> | <ul><li>Maintaining 2-3+ ML models</li></ul> |
+| 3️⃣  | **Automated Model Deployment** | <ul><li>Releases are managed by an automated CI/CD pipeline</li><li>Close cooperation between data and software engineers</li><li>Performance of the deployed model is monitored, A/B tests for model selection are used</li></ul> | <ul><li>Business-critical ML services</li></ul> |
+| 4️⃣  | **Full MLOps Automated Operations** | <ul><li>Clearly defined metrics for model monitoring</li><li>Automatic retraining triggered when passing a model metric's threshold</li> </ul>  | <ul><li>Use only when a favorable trade-off between implementation cost and increase in efficiency is likely</li><li>Retraining is needed often and is repetitive (has potential for automation)</li></ul> |
 
 
 Read more on maturity, visit [Microsoft's MLOps maturity model](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/mlops/mlops-maturity-model)
