@@ -6,7 +6,7 @@ MLOps brings DevOps principles to machine learning. It is a set of best practice
 
 MLOps could help to
 
-- Track model iterations and reproduce results reliably
+- Track model iterations and reproduce results reliably 
 - Monitor model performance and deliver domain-specific metrics for ML
 - Deliver models safely and automatically into production.
 
