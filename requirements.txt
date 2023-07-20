@@ -1,1 +1,2 @@
+mlflow
 pyarrow==12.0.0
