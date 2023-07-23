@@ -25,6 +25,11 @@
 
 ### MLflow On-boarding
 
+- To run the MLflow UI locally we use the command:
+  - `--backend-store-uri db_type:///path_to_db` to store the result
+    - In this case, we use `sqlite` database and path `./mlflow.db`
+
 ```
-mlflow ui
+# need to cd to the folder where mlflow.db located
+mlflow ui --backend-store-uri sqlite:///mlflow.db
 ```
