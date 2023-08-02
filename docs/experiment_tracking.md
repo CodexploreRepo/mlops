@@ -33,3 +33,5 @@
 # need to cd to the folder where mlflow.db located
 mlflow ui --backend-store-uri sqlite:///mlflow.db
 ```
+
+### Mlflow Model Logging
