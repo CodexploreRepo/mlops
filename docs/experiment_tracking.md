@@ -1,6 +1,8 @@
 # Experiment Tracking
 
-## What is experiment tracking ?
+## Introduction
+
+### What is Experiment Tracking ?
 
 - Experiment tracking is the process of keeping track of all the **relevant information** from an ML experiment, which includes:
   - Source code
@@ -9,6 +11,18 @@
   - Model
   - Hyperparameters
   - Metrics
+
+### Model Management
+
+ML model management starts when models go to production:
+
+- Streamlines moving models from experimentation to production
+- Helps with model versioning
+- Organizes model artifacts in an ML model registry
+- Helps with testing various model versions in the production environment
+- Enables rolling back to an old model version if the new one seems to be going crazy
+
+<p align="center"><img src="../assets/img/model_management.webp"></p>
 
 ## MLflow
 
@@ -23,7 +37,7 @@
     - Artifacts
     - Models
 
-### MLflow Server
+### MLflow Tracking Server
 
 - To run the MLflow UI locally we use the command:
   - `--backend-store-uri db_type:///path_to_db` to store the result
@@ -46,6 +60,10 @@ mlflow server \
   --artifacts-destination s3://bucket_name \
   --host remote_host
 ```
+
+### Mlflow Model Format
+
+<p align="center"><img src="../assets/img/mlflow_model_format.png"></p>
 
 ### Mlflow Model Logging
 
@@ -92,7 +110,9 @@ mlflow.sklearn.log_model(
   registered_model_name="linear-regression-baseline"
 )
 ```
-- Load the logged model
+
+- Load the logged model via `mlflow.pyfunc.load_model` or `mlflow.<framework>.load_model`
+
 ```Python
 loaded_model_uri = "runs://.../models"
 # Method 1: This way will log model as "mlflow.xgboost" flavor
