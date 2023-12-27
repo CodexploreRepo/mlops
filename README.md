@@ -1,8 +1,14 @@
 # MLOps
 
+## Basics
+
 - [1. Introduction to MLOps](./docs/intro_to_mlops.md)
 - [2. Experiment Tracking](./docs/experiment_tracking.md)
 - [3. Hyperparameter Optimization](./docs/hyperparameter_optimization.md)
+
+## Kubernetes
+
+- Please refer [Kubernetes 101](https://github.com/CodexploreRepo/kubernetes101/tree/main) repo
 
 ## Resources
 
