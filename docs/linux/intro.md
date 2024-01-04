@@ -42,12 +42,41 @@
 - The only root user has the right to write under this directory.
 - Every single file and directory start from the root `/` directory.
 
+#### `/home` (in MacOS will be `/Users`)
+
+- Users’ home directories, containing saved files
+  - For example: `/home/quannguyen`, `/home/vannguyen`
+
 #### `/bin`
 
-- Contains executable programs used by all the users of the system such as: `ls`, `echo`, `bash`, `mkdir`, `rm`
+- contains essential command binaries that need to be available in single user mode; for all users:
+  - serves as a standard location for key programs like`/bin/sh`, `ls`, `echo`, `bash`, `mkdir`, `rm`
 
-### `/dev`
+#### `/sbin`
+
+- contains essential system management programs needed before `/usr` is mounted.
+  - For example: `iptables`, `reboot`, `fdisk`, `ifconfig`, `swapon`
+
+#### `/usr`
+
+- `/usr/bin` contains non-essential command binaries for user programs.
+  - If you can’t find a user binary under `/bin`, look under `/usr/bin`.
+  - For example: `at`, `awk`, `cc`, `less`, `scp`
+- `/usr/sbin` contains non-essential command binaries for system administrators.
+  - If you can’t find a system binary under `/sbin`, look under `/usr/sbin`.
+  - For example: `atd`, `cron`, `sshd`, `useradd`, `userdel`
+  - A similar tool to `useradd` is `/usr/sbin/sysadminctl` on macOS via `sudo sysadminctl -addUser xxx -password xxxxxxxx interactive`
+- `/usr/local/bin` contains user’s programs that you install from source.
+  - For example, when you install **docker** from source, it goes under `/usr/local/docker`
+- `/usr/local/sbin` locally installed programs for system administration.
+
+#### `/dev`
 
 - In Linux systems, devices are files stored in the /dev directory.
 - These files can represent both physical and virtual devices.
   - For example: `/dev/null` is a virtual null device used to discard any output redirected to it.
+
+#### `/etc`
+
+- Configuration files such as
+  `passwd` and `hosts.allow`
