@@ -18,4 +18,6 @@
 
 ### Linux
 
+- [Linux & File System Introduction](./docs/linux/intro.md)
+- [Linux Commands](./docs/linux/command.md)
 - [Utils](./docs/linux/utils.md)

@@ -2,6 +2,21 @@
 
 ## Day 1
 
+### Linux
+
+- **Linux** is the **kernel**: the program in the system that allocates the machine's resources (CPU, memory and disk, etc.) to the other programs that you run.
+- An **operating system** includes a kernel, compilers, editors, text formatters, mail software, graphical interfaces, libraries, games and many other things.
+  - The **kernel** is an essential part of an operating system, but useless by itself; it can only function in the context of a complete operating system.
+
+<p align="center"><img src="./assets/img/kernel_layout.png" width=300/></p>
+
+- Linux is normally used in combination with the GNU OS: the whole system is basically GNU with Linux added, or `GNU/Linux`.
+- All the so-called “Linux” distributions such as Ubuntu, Kali Linux, are really distributions of GNU/Linux.
+
+#### Linux Commands
+
+- `/dev/null` is a virtual null device used to discard any output redirected to it.
+
 ### SQL
 
 #### View & Snapshot (materialized views)
