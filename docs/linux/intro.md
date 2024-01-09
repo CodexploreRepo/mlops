@@ -37,6 +37,25 @@
 
 ## Linux Directory Structure
 
+```shell
+\        # root
+├── home # or Users in macOS: Files and directories for users
+│   ├── quannguyen # user1
+│   ├── codexplore # user2
+├── bin           # essential command such as sh, ls, bash
+├── sbin          # essential system management programs such as reboot, shutdown
+├── usr
+│   ├── bin       # non-essential command: ssh, telnet, less
+│   ├── sbin      # non-essential system command
+│   ├── local
+│   │   ├── bin   # user’s programs that you install from source such as docker, kubectl
+│   │   ├── sbin  # system administration commands belong to users
+├── dev  # files representing both physical and virtual devices
+├── proc # files for monitoring processes such as /proc/meminfo
+├── etc  # configuration files such as passwd and hosts.allow
+├── tmp  # programs's temporary files
+```
+
 ### `/` Root
 
 - The only root user has the right to write under this directory.
@@ -50,7 +69,7 @@
 #### `/bin`
 
 - contains essential command binaries that need to be available in single user mode; for all users:
-  - serves as a standard location for key programs like`/bin/sh`, `ls`, `echo`, `bash`, `mkdir`, `rm`
+  - serves as a standard location for key programs like`sh`, `ls`, `echo`, `bash`, `mkdir`, `rm`
 
 #### `/sbin`
 
@@ -75,6 +94,10 @@
 - In Linux systems, devices are files stored in the /dev directory.
 - These files can represent both physical and virtual devices.
   - For example: `/dev/null` is a virtual null device used to discard any output redirected to it.
+
+#### `/proc`
+
+- files for monitoring processes such as `/proc/meminfo`
 
 #### `/etc`
 
