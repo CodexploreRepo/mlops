@@ -13,6 +13,17 @@
 - Linux is normally used in combination with the GNU OS: the whole system is basically GNU with Linux added, or `GNU/Linux`.
 - All the so-called “Linux” distributions such as Ubuntu, Kali Linux, are really distributions of GNU/Linux.
 
+#### `/proc` folder
+
+- Contains files for monitoring processes
+- Get the status information of a process: `/proc/PID/{status, cpu, memory, meminfo}`
+  - Find more [Process specific entries in `/proc`](https://www.kernel.org/doc/html/latest/filesystems/proc.html)
+
+```bash
+cat /proc/25/status # get the overal status
+cat /proc/25/mem    # get the memory information
+```
+
 #### Linux Commands
 
 - `/dev/null` is a virtual null device used to discard any output redirected to it.

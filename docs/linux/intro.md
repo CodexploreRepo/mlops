@@ -97,9 +97,24 @@
 
 #### `/proc`
 
-- files for monitoring processes such as `/proc/meminfo`
+- Contains files for monitoring processes
+- Get the status information of a process: `/proc/PID/{status, cpu, memory}`
+  - Find more [Process specific entries in `/proc`](https://www.kernel.org/doc/html/latest/filesystems/proc.html)
+
+```bash
+cat /proc/25/status # get the overal status
+cat /proc/25/mem    # get the memory information
+```
+
+- In MacOS, you can get all this informations in CLI with `sysctl` command.
+
+```bash
+sysctl -a         # for all information
+sysctl hw.memsize # for memory
+sysctl hw.ncpu    # cpu info
+```
 
 #### `/etc`
 
 - Configuration files such as
-  `passwd` and `hosts.allow`
+  `passwd` and `hosts.allow`, `hosts.deny`
