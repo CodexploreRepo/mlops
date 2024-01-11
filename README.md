@@ -20,5 +20,5 @@
 
 - [Linux & File System Introduction](./docs/linux/intro.md)
 - [Linux Commands](./docs/linux/linux_command.md)
-- [Bash Scripting](./docs/linux/bash_scripting.md)
+- [Bash & Bash Scripting](./docs/linux/bash_scripting.md)
 - [Utils](./docs/linux/utils.md)

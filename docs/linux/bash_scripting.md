@@ -1,4 +1,4 @@
-# Bash Scripting
+# Bash & Bash Scripting
 
 ## Introduction
 
@@ -12,6 +12,7 @@
   - There are other shells available as well, such as Korn shell (`ksh`), C shell (`csh`), and Z shell (`zsh`).
 - `sh` (or the Shell Command Language) is a _programming language_ described by the POSIX standard.
   - It has many implementations (ksh88, Dash, ...). Bash can also be considered an implementation of sh
+  - `Bash` is a superset of `sh` with a more elegant syntax and more functionality such as scoped local variables and arrays. `sh` is a very minimalistic programming language.
   - Because sh is a specification, not an implementation, `/bin/sh` is a **symlink** (or a hard link) to an actual implementation on most POSIX systems.
     - In most GNU/Linux systems, `/bin/sh` used to point to `/bin/bash`
     - In macOS, zsh shell type `la /private/var/select` to know what `/bin/sh` will link to which. In this case, `sh -> /bin/bash`
