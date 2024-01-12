@@ -51,7 +51,6 @@ chmod ug+x myscript.py # give both user and group executable permission
 - To assign variables in bash, use the syntax `foo=bar`
   - Note: that `foo = bar` will not work since it is interpreted as calling the `foo` program with arguments `=` and `bar`
 - To access the value of the variable with `$foo`
-  foor
 
 ```bash
 bash-5.2$ foo=bar

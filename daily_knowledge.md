@@ -44,6 +44,12 @@ cat /proc/25/status # get the overal status
 cat /proc/25/mem    # get the memory information
 ```
 
+### Linux Commands
+
+- `/dev/null` is a virtual null device used to discard any output redirected to it.
+
+### Bash Script
+
 #### Shebang
 
 - If the executable bit (`x`) is set on a file (with a proper shebang), it can be executed directly by the users with that permission.
@@ -58,9 +64,42 @@ cat /proc/25/mem    # get the memory information
 chmod ug+x myscript.py # give both user and group executable permission
 ```
 
-### Linux Commands
+#### Variable Assignment
 
-- `/dev/null` is a virtual null device used to discard any output redirected to it.
+- To assign variables in bash, use the syntax `foo=bar`
+  - Note: that `foo = bar` will not work since it is interpreted as calling the `foo` program with arguments `=` and `bar`
+- To access the value of the variable with `$foo`
+
+#### Function
+
+- Bash uses a variety of special variables to refer to arguments, error codes, and other relevant variables.
+  - `$0` Name of the script
+  - `$1` to `$9` Arguments to the script.
+    - `$1` is the first argument and so on.
+  - `$_` Last argument from the last command.
+
+```bash
+#############################
+# in the basic_script.sh    #
+#############################
+
+#!/opt/homebrew/bin/bash
+mcd () {
+    mkdir -p "$1"
+    echo "Successfully create $1 folder"
+}
+
+#############################
+# in the interactive shell  #
+#############################
+
+bash-5.2$ source ./basic_script.sh
+bash-5.2$ mcd today
+# Successfully create today folder
+bash-5.2$ rmdir $_ # this will refer to the last arg from last command which is `today`
+bash-5.2$ ls       # the today folder has been deleted
+# basic_script.sh  data
+```
 
 #### Variable Assignment
 
