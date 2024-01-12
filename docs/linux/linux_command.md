@@ -11,6 +11,24 @@ whereis docker
 # docker: /usr/local/bin/docker
 ```
 
+### `rm` commands
+
+- `rm` deletes directories that may contain content such as files and subdirectories
+  - `-r` recursively delete the contents of a directory (whether it's files or subdirectories)
+- `rmdir` ONLY deletes empty directories.
+
+```shell
+# remove a file
+rm test.txt
+
+# remove a directory with contents
+rm -r test_folder
+
+# remove empty directory
+rm -d test_folder
+rmdir test_folder
+```
+
 ## Special Commands
 
 ### `/dev/null`
