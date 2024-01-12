@@ -2,32 +2,78 @@
 
 ## Introduction
 
-### Terminal, Shell (Bash, zsh), `sh`
-
-- **Terminal**: A program acts as a wrapper to enter commands
-- **Shell**: A command line interpreter that receives and executes commands
-  - Bash (Bourne-Again **SHell**) is one of the most commonly used Unix/Linux shells and is the default shell in many Linux distributions.
-    - `$` when a shell is used interactively with user mode
-    - `#` when a shell is used interactively with root mode
-  - There are other shells available as well, such as Korn shell (`ksh`), C shell (`csh`), and Z shell (`zsh`).
-- `sh` (or the Shell Command Language) is a _programming language_ described by the POSIX standard.
-  - It has many implementations (ksh88, Dash, ...). Bash can also be considered an implementation of sh
-  - `Bash` is a superset of `sh` with a more elegant syntax and more functionality such as scoped local variables and arrays. `sh` is a very minimalistic programming language.
-  - Because sh is a specification, not an implementation, `/bin/sh` is a **symlink** (or a hard link) to an actual implementation on most POSIX systems.
-    - In most GNU/Linux systems, `/bin/sh` used to point to `/bin/bash`
-    - In macOS, zsh shell type `la /private/var/select` to know what `/bin/sh` will link to which. In this case, `sh -> /bin/bash`
-    ```bash
-    la /private/var/select
-    # total 0
-    # lrwxr-xr-x  1 root  wheel     9B Dec 15 22:43 sh -> /bin/bash
-    ```
-
 ### Bash Script
 
 - A bash script is a file containing a sequence of commands that are executed by the bash program line by line.
 
-#### Execution
+### Shebang
+
+- Bash scripts start with a **shebang** which is `#!`
+- Shebang tells the shell to execute it via `bash` shell.
+  - Shebang is simply an absolute path to the bash interpreter.
+
+```Bash
+#!/bin/bash
+
+# This shebang is to tell the shell to use default bash, located at bin/bash
+
+#!/opt/homebrew/bin/bash
+
+# This shebang is to tell the shell to use "bash 5.2" which installed via HomeBrew
+```
+
+### Making a file executable
+
+- If the executable bit (`x`) is set on a file (with a proper shebang), it can be executed directly by the users with that permission.
+  - For example: after you `chmod a+x myscript.py`, instead of running `python3 myscript.py`, you can just run `./myscript.py`, provided that `myscript.py` has the shebang `#!/usr/bin/python3`
+- You can give the file executable to the current user, group or all users or the combination of those below flags:
+  - `u` for user
+  - `g` for group
+  - `o` for others
+  - `a` for all users
+
+```bash
+chmod ug+x myscript.py # give both user and group executable permission
+```
+
+### Bash Script Execution
 
 - If you run your script with `sh scriptname`, or run it with `scriptname` and have `#!/bin/sh` in the shebang line, you should expect POSIX `sh` **behavior**.
 - If you run your script with `bash scriptname`, or run it with `scriptname` and have `#!/bin/bash`in the shebang line, you should expect **Bash behavior**.
 - **NOTE**: If you want to execute the script only by `scriptname`, you will have to execute permission (`chmod a+x scriptname`)
+
+## Syntax
+
+### Varibales
+
+#### Variable Assignment
+
+- To assign variables in bash, use the syntax `foo=bar`
+  - Note: that `foo = bar` will not work since it is interpreted as calling the `foo` program with arguments `=` and `bar`
+- To access the value of the variable with `$foo`
+  foor
+
+```bash
+bash-5.2$ foo=bar
+bash-5.2$ echo $foo
+# bar
+bash-5.2$ foo = bar
+# bash: foo: command not found
+```
+
+#### String
+
+- Strings in bash can be defined with `'` and `"` delimiters, but they are not equivalent.
+  - Strings delimited with `'` are literal strings and will not substitute variable value
+  - Strings delimited with `"` will
+
+```bash
+bash-5.2$ foo=bar
+bash-5.2$ echo 'Value is $foo'
+# Value is $foo
+
+bash-5.2$ echo "Value is $foo" #
+# Value is bar
+```
+
+### Functions

@@ -2,11 +2,13 @@
 
 ## Common Commands
 
-- `whereis` to find the location of source/binary file of a command and manuals sections for a specified file in Linux system.
+- `which` or `whereis` to find the location of source/binary file of a command and manuals sections for a specified file in Linux system.
 
 ```shell
+which docker
+# /usr/local/bin/docker
 whereis docker
-docker: /usr/local/bin/docker
+# docker: /usr/local/bin/docker
 ```
 
 ## Special Commands

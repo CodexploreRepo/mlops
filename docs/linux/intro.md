@@ -1,13 +1,11 @@
 # Linux Introduction
 
-## Introduction
-
-### Unix-like Operating System
+## Unix-like Operating System
 
 - A **Unix-like Operating System** includes a kernel, compilers, editors, text formatters, mail software, graphical interfaces, libraries, games and many other things.
 - GNU/Linux is a Unix-like operating system
 
-### GNU/Linux = GNU System + Linux Kernel
+## GNU/Linux = GNU System + Linux Kernel
 
 - [READ MORE](https://www.gnu.org/gnu/linux-and-gnu.en.html)
 - **GNU Operating System (OS)** is a complete free software system, upward-compatible with Unix. GNU stands for “GNU's Not Unix.”
@@ -16,7 +14,7 @@
   - Combining Linux with the almost-complete GNU system resulted in a complete operating system, called as **GNU/Linux**
 - GNU/Linux is an alternative solution to AT&T Unix OS (not free)
 
-#### Linux Kernel
+### Linux Kernel
 
 - **Linux** is the **kernel**: the program in the system that allocates the machine's resource (CPU, memory and disk, etc.) to the other programs that you run.
 - An **operating system** includes a kernel, compilers, editors, text formatters, mail software, graphical interfaces, libraries, games and many other things.
@@ -27,13 +25,33 @@
 - Linux is normally used in combination with the GNU OS: the whole system is basically GNU with Linux added, or `GNU/Linux`.
 - All the so-called “Linux” distributions such as Ubuntu, Debian, Kali Linux, are really distributions of GNU/Linux.
 
-### Unix vs GNU/Linux
+## Unix vs GNU/Linux
 
 |               | AT&T Unix                                  | GNU/Linux                              |
 | ------------- | ------------------------------------------ | -------------------------------------- |
 |               | Closed-sourced, require a license for use  | Open-source                            |
 | Default Shell | Bourne Shell                               | BASH                                   |
 | Use-case      | Enterprise-level servers and workstations. | Both enterprise and personal computers |
+
+## Terminal, Shell (Bash, zsh), `sh`
+
+- **Terminal**: A program acts as a wrapper to enter commands
+- **Shell**: A command line interpreter that receives and executes commands
+  - Bash (Bourne-Again **SHell**) is one of the most commonly used Unix/Linux shells and is the default shell in many Linux distributions.
+    - `$` when a shell is used interactively with user mode
+    - `#` when a shell is used interactively with root mode
+  - There are other shells available as well, such as Korn shell (`ksh`), C shell (`csh`), and Z shell (`zsh`).
+- `sh` (or the Shell Command Language) is a _programming language_ described by the POSIX standard.
+  - It has many implementations (ksh88, Dash, ...). Bash can also be considered an implementation of sh
+  - `Bash` is a superset of `sh` with a more elegant syntax and more functionality such as scoped local variables and arrays. `sh` is a very minimalistic programming language.
+  - Because sh is a specification, not an implementation, `/bin/sh` is a **symlink** (or a hard link) to an actual implementation on most POSIX systems.
+    - In most GNU/Linux systems, `/bin/sh` used to point to `/bin/bash`
+    - In macOS, zsh shell type `la /private/var/select` to know what `/bin/sh` will link to which. In this case, `sh -> /bin/bash`
+    ```bash
+    la /private/var/select
+    # total 0
+    # lrwxr-xr-x  1 root  wheel     9B Dec 15 22:43 sh -> /bin/bash
+    ```
 
 ## Linux Directory Structure
 

@@ -44,9 +44,29 @@ cat /proc/25/status # get the overal status
 cat /proc/25/mem    # get the memory information
 ```
 
-#### Linux Commands
+#### Shebang
+
+- If the executable bit (`x`) is set on a file (with a proper shebang), it can be executed directly by the users with that permission.
+  - For example: after you `chmod a+x myscript.py`, instead of running `python3 myscript.py`, you can just run `./myscript.py`, provided that `myscript.py` has the shebang `#!/usr/bin/python3`
+- You can give the file executable to the current user, group or all users or the combination of those below flags:
+  - `u` for user
+  - `g` for group
+  - `o` for others
+  - `a` for all users
+
+```bash
+chmod ug+x myscript.py # give both user and group executable permission
+```
+
+### Linux Commands
 
 - `/dev/null` is a virtual null device used to discard any output redirected to it.
+
+#### Variable Assignment
+
+- To assign variables in bash, use the syntax `foo=bar`
+  - Note: that `foo = bar` will not work since it is interpreted as calling the `foo` program with arguments `=` and `bar`
+- To access the value of the variable with `$foo`
 
 ### SQL
 
