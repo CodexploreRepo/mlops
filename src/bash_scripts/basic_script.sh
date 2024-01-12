@@ -24,8 +24,7 @@ first_arg=$1
 ## Function
 mcd () {
     mkdir -p "$1"
-    rm -d "$1"
-    echo "Done"
+    echo "Successfully create $1 folder"
 }
 
 # function example
