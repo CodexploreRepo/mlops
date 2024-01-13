@@ -2,6 +2,12 @@
 
 ## Common Commands
 
+### `cd`
+
+- `cd -` changes the current working directory to the previous working directory
+
+### `diff`
+
 - `diff` show the difference
   - For example: `diff <(ls foo) <(ls bar)` will show differences between files in dirs `foo` and `bar`.
 
@@ -15,6 +21,42 @@ diff <(ls foo) <(ls bar)
 # > y
 ```
 
+### `find`
+
+- `find` finding files or directories.
+
+```bash
+# Find all directories named src
+find . -name src -type d
+# Find all python files that have a folder named test in their path
+find . -path '*/test/*.py' -type f
+# Find all files modified in the last day
+find . -mtime -1
+# Find all zip files with size in range 500k to 10M
+find . -size +500k -size -10M -name '*.tar.gz'
+```
+
+- `find` can also perform actions over files that match your query.
+
+```bash
+# Delete all files with .tmp extension
+find . -name '*.tmp' -exec rm {} \;
+# Find all PNG files and convert them to JPG
+find . -name '*.png' -exec convert {} {}.jpg \;
+```
+
+### `grep`
+
+- Find the word `length` in all the csv files
+
+```bash
+bash-5.2$ grep length ./data/*.csv
+# ./data/data1.csv:"sepal.length","sepal.width","petal.length","petal.width","variety"
+# ./data/data2.csv:"sepal.length","sepal.width","petal.length","petal.width","variety"
+```
+
+### `source`
+
 - `source filename.sh` reads and executes commands from `filename.sh` script in the current shell environment.
   - For example: inside the `filename.sh` has the function `mcd`, in other to execute the function `mcd` in the shell, you have to source the script first before invoke the function
 
@@ -22,6 +64,8 @@ diff <(ls foo) <(ls bar)
 source filename.sh # load the command in the filename.sh to the shell
 mcd arg1 arg2      # call the function mcd of the script from the shell with "arg1" and "arg2"
 ```
+
+### `rm`
 
 - `rm` deletes directories that may contain content such as files and subdirectories
   - `-r` recursively delete the contents of a directory (whether it's files or subdirectories)
@@ -39,8 +83,13 @@ rm -d test_folder
 rmdir test_folder
 ```
 
+### `touch`
+
 - `touch` to create a new file
   - Example: `touch project{1,2}/src/test/test{1,2,3}.py`
+
+### `which`
+
 - `which` or `whereis` to find the location of source/binary file of a command and manuals sections for a specified file in Linux system, specified in `PATH`
   - Special case: `which source` will return empty as source is a shell built-in command. The which command looks for binaries on the `PATH`, like in /usr/bin, /bin, /sbin, etc
 

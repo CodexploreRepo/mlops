@@ -1,9 +1,22 @@
 # Utils
 
+## Auto-suggestion
+
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions?tab=readme-ov-file): Fish-like fast/unobtrusive autosuggestions for zsh.
+
 ## [fzf](https://github.com/junegunn/fzf)
 
 - `fzf` is a general-purpose command-line fuzzy finder.
   - It's an interactive Unix filter for command-line that can be used with any list; files, command history, processes, hostnames, bookmarks, git commits, etc.
+- Note:
+
+```
+plugins=(
+    git
+    # other plugins...
+    zsh-autosuggestions
+)
+```
 
 ### Usage
 
