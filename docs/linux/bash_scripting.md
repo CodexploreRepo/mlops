@@ -91,7 +91,7 @@ bash-5.2$ foo = bar
 # bash: foo: command not found
 ```
 
-#### String
+### String
 
 - Strings in bash can be defined with `'` and `"` delimiters, but they are not equivalent.
   - Strings delimited with `'` are literal strings and will not substitute variable value
@@ -104,6 +104,116 @@ bash-5.2$ echo 'Value is $foo'
 
 bash-5.2$ echo "Value is $foo" #
 # Value is bar
+```
+
+#### String Replacement
+
+- In the below example, the `${original_string/world/$replacement}` expression replaces the **first occurrence **of the substring `"Hello"` in `original_string` with the content of the `replacement` variable.
+
+```bash
+original_string="Hello Hello, world!"
+replacement="Goodbye"
+result_string="${original_string/Hello/$replacement}"
+echo "$result_string" # Goodbye Hello, world!
+```
+
+- If you want to replace all occurrences of a substring, you can use the `//` instead of a single `/`
+  - In the below example, all `"world"` word has been replaced with `"Goodbye"`
+
+```bash
+original_string="Hello, world! Hello, world!"
+result_string="${original_string//world/$replacement}"
+echo "$result_string" # Hello, Goodbye! Hello, Goodbye!
+```
+
+#### String Splitting
+
+- `IFS='/' read -ra my_array <<< "$my_path"`
+  - `<<<` is a Bash operator known as a "here string", to provide the content of the variable `$my_path` as input to the `read` command.
+  - `read` command then reads the string, splitting it into elements based on the Internal Field Separator (`IFS`), in this case is `/`
+    - `-r` interpret backslashes (`\`) literally. Without this option, backslashes would be treated as escape characters, potentially altering the meaning of characters.
+    - `-a` read the input into an array `my_array`
+
+```bash
+my_path="/home/quandv/Documents/home/m1/linux/scripts"
+
+IFS="/" read -ra my_array <<< "$my_path"
+for element in ${my_array[@]}
+do
+    echo "'$element'"
+done
+# 'home'
+# 'quandv'
+# 'Documents'
+# 'home'
+# 'm1'
+# 'linux'
+# 'scripts'
+```
+
+### Conditional Statements
+
+#### `if-else-elif`
+
+- Condition will be specified inside `[[, ]]`
+  - For numerical operations, condition should be specified inside `((, ))`
+- Comparison: `-lt` (less than), `-le` (less than or equal), `-gt` (greater than), `-ge` (greater than or equal)
+- Logical operators such as AND `-a` and OR `-o`
+  - For example: `if [ $a -gt 60 -a $b -lt 100 ]`
+
+```bash
+if [[ $first_arg > 0 ]]; then
+  echo "First argument is positive"
+elif [[ $first_arg == 0 ]]; then
+  echo "First argument is zero"
+else
+  echo "First argument is negative"
+fi
+
+# Don't use [[ 10 > 9 ]], but use
+# (( 10 > 9 )) for numerical operations
+if (( 10 > 9 )); then
+  echo "10 > 9 is true"
+else
+  echo "10 > 9 is false" # if use [[ ]] will return 10 > 9 is false
+fi
+```
+
+### Loop
+
+#### `while` loop
+
+- `(( i += 1 ))` is the counter statement that increments the value of i
+
+```bash
+i=1
+while [[ $i -le 5 ]]
+do
+    echo "$i"
+    ((i+=1))
+done
+```
+
+#### `for` loop
+
+```bash
+for i in {1..5}
+do
+    echo $i
+done
+```
+
+- To print all .sh files in the current directory
+
+```bash
+# For loop to look up .sh files
+echo "All the .sh files in the current directory:"
+for i in ./*.sh; do
+    echo $i
+done
+
+# ./basic_script.sh
+# ./calculate_frequency.sh
 ```
 
 ### Functions
@@ -151,4 +261,42 @@ bash-5.2$ ls
 bash-5.2$ sudo !! # execute entire last command, including arguments.
 # sudo ls
 Password:
+```
+
+- Example: read text file function
+
+```bash
+file_path="./data/input.txt"
+
+read_txt() {
+    while read line
+    do
+        echo "$line"
+    done < $1         # $1 = ./data/input.txt
+}
+read_txt $file_path
+```
+
+- Example: read csv file function
+  - `read -r line`
+    - `-r` interpret backslashes (`\`) literally. Without this option, backslashes would be treated as escape characters, potentially altering the meaning of characters.
+  - `IFS=',' read -ra my_record <<< "$line"`
+    - `<<<` is a Bash operator known as a "here string", to provide the content of the variable `$line` as input to the `read` command.
+    - `read` command then reads the string, splitting it into elements based on the Internal Field Separator (`IFS`)
+      - `-r` interpret backslashes (`\`) literally. Without this option, backslashes would be treated as escape characters, potentially altering the meaning of characters.
+      - `-a` read the input into an array
+
+```bash
+# Read csv example
+file_path="./data/data1.csv"
+my_readfile_func() {
+    while read -r line; do
+        # Use Internal Field Separator (IFS) to split string,
+        # then read the raw input (-r) and create a new array (-a), namely "my_record"
+        IFS=',' read -ra my_record <<< "$line"
+        echo ${my_record[-1]} # print the last element in "my_record" array
+        # echo ${my_record[${#my_record[@]}-1]} # if run bash script in zsh
+    done < $1 # the first argument that we pass to the my_readfile_func $1 = $filepath
+}
+my_readfile_func $file_path
 ```
