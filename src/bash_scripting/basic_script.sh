@@ -98,25 +98,26 @@ first_arg=$1
 my_path="/home/quandv/Documents/home/m1/linux/scripts"
 # echo "Replaced the first 'home': ${my_path/home/house}" # replace "home" with "house"
 # # Split
-echo "Split $my_path by / into an array:"
-IFS="/" read -ra my_array <<< "$my_path"
-for element in ${my_array[@]}
-do
-    echo "'$element'"
-done
-# # echo "Delete everything up to the last slash: ${my_path##*/}" # delete everything till the last back slash
-# # #: start from tail, ##: start from head
-# # echo "Delete everything up to the last slash: ${my_path##*/m1}" # return /linux/scripts
+# echo "Split $my_path by / into an array:"
+# IFS="/" read -ra my_array <<< "$my_path"
+# for element in ${my_array[@]}
+# do
+#     echo "'$element'"
+# done
+# echo "Delete everything up to the last slash: ${my_path##*/}" # delete everything till the last back slash
+
+# echo "Delete everything up to the /linux/scripts: ${my_path##*/m1}" # return /linux/scripts
 # echo "Lower case: ${my_path,,}; Upper case: ${my_path^^}"
+# # array direct assignment
 # my_array=(10 2 300)
 # echo "First element: ${my_array[0]}"
 # echo "Last element: ${my_array[-1]}"
 # echo "Number of elements: ${#my_array[@]}"
 
-# cat << EOF >> ./data/test.txt # change << EOF >> to < EOF> will be overwrite
-# machine learning engineering
-# data engineering
-# EOF
+cat << EOF >> ./data/test.txt # change << EOF >> to < EOF> will be overwrite
+machine learning engineering
+data engineering
+EOF
 
-# echo "data science" >> ./data/test.txt # >> append
-# echo "math" > ./data/test.txt # > overwrite
+echo "data science" >> ./data/test.txt # >> append
+echo "math" > ./data/test.txt # > overwrite

@@ -151,6 +151,51 @@ done
 # 'scripts'
 ```
 
+#### String Deletion
+
+- To remove a specified number of characters from the beginning of a string, you can use the `${variable:offset}` syntax
+
+##### Delete from the beginning of the string
+
+- For example, to remove the first three characters
+
+```bash
+my_string="abcdef"
+new_string="${my_string:3}"
+echo "$new_string" # def
+```
+
+##### Delete from the end of the string
+
+- To remove characters from the end of a string, you can use the `${variable:0:-count}`
+
+```bash
+my_string="abcdef"
+new_string="${my_string:0:-3}"
+echo "$new_string" # abc
+```
+
+##### Delete based on pattern
+
+- `##` signifies greedy matching, so it matches from the start of the string as much as possible.
+- `*` match everything
+- `##*/`: This is a pattern that matches everything up to the last forward slash (`/`)
+
+```bash
+my_path="/home/quandv/Documents/home/m1/linux/scripts"
+basename="${my_path##*/}"
+echo "Basename: $basename" #script
+```
+
+### Array
+
+```bash
+my_array=(10 2 300)
+echo "First element: ${my_array[0]}"        # 10
+echo "Last element: ${my_array[-1]}"        # 300
+echo "Number of elements: ${#my_array[@]}"  # 3
+```
+
 ### Conditional Statements
 
 #### `if-else-elif`

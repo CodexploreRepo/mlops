@@ -57,6 +57,25 @@ cat /proc/25/mem    # get the memory information
 
 - `/dev/null` is a virtual null device used to discard any output redirected to it.
 
+#### File Writting
+
+- `>` overwrites the file.
+- `>>` appends to the file
+
+```bash
+echo "data science" >> ./data/test.txt # >> append
+echo "math" > ./data/test.txt # > overwrite
+```
+
+- If you want to append multiple lines into a file, you can use `EOF`
+
+```bash
+cat << EOF >> ./data/test.txt # change << EOF >> to < EOF> will be overwrite
+machine learning engineering
+data engineering
+EOF
+```
+
 ### Bash Scripting
 
 #### Shebang

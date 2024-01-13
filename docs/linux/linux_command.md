@@ -104,6 +104,25 @@ which source
 
 ## Special Commands
 
+### File Writting
+
+- `>` overwrites the file.
+- `>>` appends to the file
+
+```bash
+echo "data science" >> ./data/test.txt # >> append
+echo "math" > ./data/test.txt # > overwrite
+```
+
+- If you want to append multiple lines into a file, you can use `EOF`
+
+```bash
+cat << EOF >> ./data/test.txt # change << EOF >> to < EOF> will be overwrite
+machine learning engineering
+data engineering
+EOF
+```
+
 ### Glob
 
 - Wildcards `?` (match one characters) and `*` (match any mount of characters)
