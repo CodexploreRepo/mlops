@@ -53,6 +53,20 @@
     # lrwxr-xr-x  1 root  wheel     9B Dec 15 22:43 sh -> /bin/bash
     ```
 
+### Using the shell
+
+- How does the shell know how to find the date or echo programs?
+- If the shell is asked to execute a command that doesn’t match one of its programming keywords, it consults an environment variable called `$PATH`
+
+#### Environment Variable `$PATH`
+
+- `$PATH` lists which directories the shell should search for programs
+
+```bash
+bash-5.2$: echo $PATH
+# /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+```
+
 ## Linux Directory Structure
 
 ```shell

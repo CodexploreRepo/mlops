@@ -20,7 +20,7 @@ first_arg=$1
 # for ((i=0; i < $first_arg; i++)); do
 #     echo $i
 # done
-
+echo "Running program $0 with $# arguments with pid $$"
 ## Function
 mcd () {
     mkdir -p "$1"

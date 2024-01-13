@@ -2,27 +2,26 @@
 
 ## Common Commands
 
+- `diff` show the difference
+  - For example: `diff <(ls foo) <(ls bar)` will show differences between files in dirs `foo` and `bar`.
+
+```shell
+touch foo/x bar/y
+# Show differences between files in foo and bar
+diff <(ls foo) <(ls bar)
+# Outputs
+# < x
+# ---
+# > y
+```
+
 - `source filename.sh` reads and executes commands from `filename.sh` script in the current shell environment.
   - For example: inside the `filename.sh` has the function `mcd`, in other to execute the function `mcd` in the shell, you have to source the script first before invoke the function
 
-```shel
+```shell
 source filename.sh # load the command in the filename.sh to the shell
 mcd arg1 arg2      # call the function mcd of the script from the shell with "arg1" and "arg2"
 ```
-
-- `which` or `whereis` to find the location of source/binary file of a command and manuals sections for a specified file in Linux system, specified in `PATH`
-  - Special case: `which source` will return empty as source is a shell built-in command. The which command looks for binaries on the `PATH`, like in /usr/bin, /bin, /sbin, etc
-
-```shell
-which docker
-# /usr/local/bin/docker
-whereis docker
-# docker: /usr/local/bin/docker
-which source
-# return empty as source is a shell built-in command
-```
-
-### `rm` commands
 
 - `rm` deletes directories that may contain content such as files and subdirectories
   - `-r` recursively delete the contents of a directory (whether it's files or subdirectories)
@@ -40,7 +39,51 @@ rm -d test_folder
 rmdir test_folder
 ```
 
+- `touch` to create a new file
+  - Example: `touch project{1,2}/src/test/test{1,2,3}.py`
+- `which` or `whereis` to find the location of source/binary file of a command and manuals sections for a specified file in Linux system, specified in `PATH`
+  - Special case: `which source` will return empty as source is a shell built-in command. The which command looks for binaries on the `PATH`, like in /usr/bin, /bin, /sbin, etc
+
+```shell
+which docker
+# /usr/local/bin/docker
+whereis docker
+# docker: /usr/local/bin/docker
+which source
+# return empty as source is a shell built-in command
+```
+
 ## Special Commands
+
+### Glob
+
+- Wildcards `?` (match one characters) and `*` (match any mount of characters)
+- Example of `?`
+  - Given files `foo`, `foo1`, `foo2`, `foo10` and `bar` in a folder
+    - `rm foo?` will delete `foo1` and `foo2`
+    - `rm foo*` will delete all but `bar`.
+- Example of `*`
+  - Search all the csv file inside **data** folder: `ls ./data/*.csv`
+
+### Substitution
+
+#### Command Substitution
+
+- Command substitution: Whenever you place `$(CMD)` it will execute `CMD`, get the output of the command and substitute it in place.
+
+```shell
+bash-5.2$ echo "We are at $(pwd)"
+# We are at /Users/codexplore/repos/mlops/src/bash_scripts
+```
+
+#### Process Substitution
+
+- `< (CMD)` lesser
+  - In the below example, it will concat the commands from `ls` and `ls ..` and return to `cat`
+
+```shell
+cat <(ls) <(ls ..)
+```
 
 ### `/dev/null`
 

@@ -33,6 +33,15 @@
     # lrwxr-xr-x  1 root  wheel     9B Dec 15 22:43 sh -> /bin/bash
     ```
 
+#### Environment Variable `$PATH`
+
+- `$PATH` lists which directories the shell should search for programs
+
+```bash
+bash-5.2$: echo $PATH
+# /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+```
+
 #### `/proc` folder
 
 - Contains files for monitoring processes
@@ -48,9 +57,56 @@ cat /proc/25/mem    # get the memory information
 
 - `/dev/null` is a virtual null device used to discard any output redirected to it.
 
-### Bash Script
+### Bash Scripting
 
 #### Shebang
+
+- Bash scripts start with a **shebang** which is `#!`
+- Shebang tells the shell to execute it via `bash` shell.
+  - Shebang is simply an absolute path to the bash interpreter.
+
+```Bash
+#!/bin/bash
+
+# This shebang is to tell the shell to use default bash, located at bin/bash
+
+#!/opt/homebrew/bin/bash
+
+# This shebang is to tell the shell to use "bash 5.2" which installed via HomeBrew
+```
+
+- It is good practice to write shebang lines using the `/usr/bin/env` command that will resolve to wherever the command lives in the system, **increasing the portability** of your scripts.
+- `/usr/bin/env` will ensure the interpreter used is the first one on your environment's `$PATH`
+  - For example: if place `!#/usr/bin/env bash` in your script, this bash version `/opt/homebrew/bin/bash` will be used instead of `/bin/bash` since in the `$PATH` variable, `/opt/homebrew/bin` is placed before `/bin`
+
+```bash
+echo $PATH
+# /opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin: .... :/usr/bin:/bin:/usr/sbin:/sbin:
+```
+
+- Note: Scripts need not necessarily be written in bash to be called from the terminal.
+  - For example: The kernel knows to execute this script with a **python** interpreter with the shebang `#!/usr/bin/env python`
+
+```Python
+#############################
+# in the python_script.py   #
+#############################
+#!/usr/bin/env python
+import sys
+for arg in reversed(sys.argv[1:]):
+    print(arg)
+
+#############################
+# in the interactive shell  #
+#############################
+bash-5.2$ chmod +x python_script.py
+bash-5.2$ ./python_script.py a b c
+# c
+# b
+# a
+```
+
+#### Making a file executable
 
 - If the executable bit (`x`) is set on a file (with a proper shebang), it can be executed directly by the users with that permission.
   - For example: after you `chmod a+x myscript.py`, instead of running `python3 myscript.py`, you can just run `./myscript.py`, provided that `myscript.py` has the shebang `#!/usr/bin/python3`
