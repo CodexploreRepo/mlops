@@ -104,6 +104,31 @@ which source
 
 ## Special Commands
 
+### Download Files with `curl` and `wget`
+
+- Both `curl` (work best for MacOS) and `wget` are command-line tools used for downloading files from the internet.
+
+#### `curl`
+
+- `-O` download a file in the current directory with its original name
+- `-o` download a file in the current directory under a different name
+
+```bash
+$ curl -O http://example.com/logs/20231003.txt
+# 20231003.txt will be downloaded and stored locally
+curl -o log.txt http://example.com/logs/20231003.txt
+# 20231003.txt will be downloaded and stored as log.txt locally
+```
+
+#### `wget`
+
+- By default, the `wget` command automatically downloads the requested resource into a file on your local machine
+
+```bash
+$ wget http://example.com/logs/20231003.txt
+# 20231003.txt will be downloaded and stored locally
+```
+
 ### File Descriptor
 
 - `0`: `STDIN` (from the Key Board)

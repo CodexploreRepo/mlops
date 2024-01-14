@@ -18,7 +18,7 @@ IRIS_URL = "https://gist.githubusercontent.com/netj/8836201/raw/6f9306ad21398ea4
 
 if __name__ == "__main__":
     # Download file from the given URL
-    cmd = f"wget {IRIS_URL}"
+    cmd = f"curl -O {IRIS_URL}"
     process = subprocess.Popen(
         cmd,
         stdout=subprocess.PIPE,
