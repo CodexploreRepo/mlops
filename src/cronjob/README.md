@@ -3,7 +3,7 @@
 ## Introduciton
 
 - Cron Job is a feature of Linux
-- To list down the cron job available: `crontab -l`
+- To list down the cron jobs available: `crontab -l`
 
 ## Usage
 

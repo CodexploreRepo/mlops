@@ -104,6 +104,14 @@ which source
 
 ## Special Commands
 
+### File Descriptor
+
+- `0`: `STDIN` (from the Key Board)
+- `1`: `STDOUT` (display in the Monitor)
+- `2`: `STDERR` (display in the Monitor)
+  - For example: `bash run.sh >> logs/iris.log 2>&1` - `>> logs/iris.log` this will re-direct the `STDOUT` (`1`) from the process `run.sh` to the log file `iris.log` - `2>&1` this will re-direct the `STDERR` (`2`) to `STDOUT` (`1`), but from above, `STDOUT` (`1`) is re-directed to the log file, so `STDERR` (`2`) also be re-directed to the log file `iris.log`
+  <p align="center"><img src="../../assets/img/file_descriptor.png" width=300 /></p>
+
 ### File Writting
 
 - `>` overwrites the file.

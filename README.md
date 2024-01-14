@@ -21,4 +21,6 @@
 - [Linux & File System Introduction](./docs/linux/intro.md)
 - [Linux Commands](./docs/linux/linux_command.md)
 - [Bash & Bash Scripting](./docs/linux/bash_scripting.md)
+- [Cron Job](./docs/linux/cron_job.md)
+- [Makefile](./docs/linux/makefile.md)
 - [Utils](./docs/linux/utils.md)
