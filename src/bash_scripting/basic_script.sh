@@ -42,12 +42,12 @@ first_arg=$1
 
 # # For-loop
 
-# # Print all numbers from 0 to first_arg-1
-# echo "All numbers from 0 to ($first_arg-1):"
-# for ((i=0; i < $first_arg; i++))
-# do
-#     echo $i
-# done
+# Print all numbers from 0 to first_arg-1
+echo "All numbers from 0 to $first_arg-1:"
+for ((i=0 ; i < $first_arg ; i++))
+do
+    echo $i
+done
 
 # # Foor loop to look up .sh files
 # echo "All the .sh files in the current directory:"

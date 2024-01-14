@@ -1,5 +1,7 @@
 # Bash & Bash Scripting
 
+- Reference: [Bash Scripting cheatsheet](https://devhints.io/bash)
+
 ## Introduction
 
 ### Bash Script
@@ -201,8 +203,8 @@ echo "Number of elements: ${#my_array[@]}"  # 3
 #### `if-else-elif`
 
 - Condition will be specified inside `[[, ]]`
-  - For numerical operations, condition should be specified inside `((, ))`
-- Comparison: `-lt` (less than), `-le` (less than or equal), `-gt` (greater than), `-ge` (greater than or equal)
+  - For numerical operations, conditions (`>`, `<`, not `-gt`, `-lt`, etc) should be specified inside `((, ))`
+- Comparison: `-lt` (less than), `-le` (less than or equal), `-gt` (greater than), `-ge` (greater than or equal), `-eq` (equal)
 - Logical operators such as AND `-a` and OR `-o`
   - For example: `if [ $a -gt 60 -a $b -lt 100 ]`
 
