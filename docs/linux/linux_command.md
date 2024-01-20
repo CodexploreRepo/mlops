@@ -32,7 +32,9 @@ find . -name src -type d
 find . -path '*/test/*.py' -type f
 # Find all files modified in the last day
 find . -mtime -1
-# Find all zip files with size in range 500k to 10M
+# Find all log files have the size greater than 1G
+find . -name "*.log" -size +1G
+# Find all zip files with size in range 500kB to 10MB
 find . -size +500k -size -10M -name '*.tar.gz'
 ```
 
@@ -54,6 +56,13 @@ bash-5.2$ grep length ./data/*.csv
 # ./data/data1.csv:"sepal.length","sepal.width","petal.length","petal.width","variety"
 # ./data/data2.csv:"sepal.length","sepal.width","petal.length","petal.width","variety"
 ```
+
+### `man`
+
+- `man` to view the user guide of commands
+  - For example: `man ls`
+  - Search: `/`type to search type → Press `n` to next
+  - Press `q` to exit
 
 ### `source`
 

@@ -19,6 +19,7 @@
 ### Linux
 
 - [Linux & File System Introduction](./docs/linux/intro.md)
+- [Server Administration](./docs/linux/server_administration.md)
 - [Linux Commands](./docs/linux/linux_command.md)
 - [Bash & Bash Scripting](./docs/linux/bash_scripting.md)
 - [Cron Job](./docs/linux/cron_job.md)

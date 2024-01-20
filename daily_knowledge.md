@@ -1,5 +1,14 @@
 # Daily Knowledge
 
+## Day 2
+
+### Linux
+
+- `man` to view the user guide of commands
+  - For example: `man ls`
+  - Search: `/`type to search type → Press `n` to next
+  - Press `q` to exit
+
 ## Day 1
 
 ### Linux
