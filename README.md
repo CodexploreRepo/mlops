@@ -22,6 +22,7 @@
 - [Server Administration](./docs/linux/server_administration.md)
 - [Linux Commands](./docs/linux/linux_command.md)
 - [Bash & Bash Scripting](./docs/linux/bash_scripting.md)
+- [Network](./docs/linux/network.md)
 - [Cron Job](./docs/linux/cron_job.md)
 - [Makefile](./docs/linux/makefile.md)
 - [Utils](./docs/linux/utils.md)
