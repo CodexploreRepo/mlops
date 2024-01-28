@@ -88,6 +88,23 @@ curl -o log.txt http://example.com/logs/20231003.txt
 # 20231003.txt will be downloaded and stored as log.txt locally
 ```
 
+- `-f` or `--fail`: Return an error status if the HTTP response code is an error (4xx or 5xx). Without this option, curl would still return success even if the HTTP response indicates an error.
+
+```bash
+# docker health check script
+curl -f http://localhost:5001/health
+```
+
+- `-s` or `--silent` Silent or quiet mode.
+  - It prevents curl from showing progress information or error messages.
+- `S` or `--show-error`: Show error.
+  - This option is used to display error messages when `-s` is also present. It makes sure that error messages are shown in case of failures.
+- `-L` or `--location` This option instructs curl to follow HTTP redirects, meaning that if the server responds with a redirect
+
+```bash
+curl -fsSL https://get.docker.com -o get-docker.sh
+```
+
 ##### `wget`
 
 - By default, the `wget` command automatically downloads the requested resource into a file on your local machine
